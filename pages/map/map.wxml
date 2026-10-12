@@ -1,0 +1,14 @@
+<view class="page">
+  <text class="eyebrow">CHANGSHA / WEEKEND MAP</text>
+  <view class="section-head"><text class="title">附近的活动</text><text class="tag">长沙</text></view>
+  <view class="chips"><button wx:for="{{categories}}" wx:key="*this" class="chip {{category === item ? 'active' : ''}}" data-value="{{item}}" bindtap="selectCategory">{{item}}</button></view>
+  <view wx:if="{{loading}}" class="notice">正在加载地图活动…</view>
+  <view wx:elif="{{errorMessage}}" class="empty"><text class="subtitle">地图活动暂时加载失败</text><text class="block muted section">{{errorMessage}}</text><button class="primary" bindtap="retry">重新加载</button></view>
+  <block wx:else>
+    <map class="real-map" latitude="{{centerLat}}" longitude="{{centerLng}}" scale="{{scale}}" markers="{{markers}}" show-location="{{showLocation}}" show-compass="true" enable-zoom="true" enable-scroll="true" enable-rotate="true" enable-overlooking="false" bindmarkertap="selectMarker" bindregionchange="regionChange"></map>
+    <view class="notice">可双指或滚轮缩放、拖动地图；点击标记查看活动。</view>
+    <view wx:if="{{selected}}"><text class="label">此刻想去这里</text><activity-card activity="{{selected}}" bind:open="open"/></view>
+    <view class="section-head section"><text class="subtitle">附近 {{activities.length}} 个拼团</text><button class="link" bindtap="publish">按需求找 →</button></view>
+    <activity-card wx:for="{{activities}}" wx:key="id" activity="{{item}}" bind:open="open"/>
+  </block>
+</view>

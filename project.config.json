@@ -1,0 +1,65 @@
+{
+  "compileType": "miniprogram",
+  "libVersion": "trial",
+  "appid": "wxcabe02fe45ec7f3c",
+  "projectname": "团团团",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "prototypes"
+      },
+      {
+        "type": "folder",
+        "value": "docs"
+      },
+      {
+        "type": "folder",
+        "value": "tests"
+      },
+      {
+        "type": "folder",
+        "value": "scripts"
+      },
+      {
+        "type": "folder",
+        "value": ".qa"
+      },
+      {
+        "type": "file",
+        "value": "_render_prototypes.ps1"
+      }
+    ],
+    "include": []
+  },
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "urlCheck": true,
+    "compileHotReLoad": true,
+    "minifyWXML": true,
+    "minifyWXSS": true,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "auto",
+    "tabSize": 2
+  },
+  "simulatorPluginLibVersion": {}
+}

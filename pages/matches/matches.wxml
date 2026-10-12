@@ -1,0 +1,8 @@
+<view class="page">
+  <text class="eyebrow">03 / YOUR WEEKEND SHORTLIST</text>
+  <text class="title">找到 {{activities.length}} 个合适的拼团</text>
+  <block wx:if="{{intent}}"><view class="row wrap section"><text class="tag">{{intent.people}} 人同行</text><text class="tag">{{intent.day}} · {{intent.period}}</text><text class="tag">{{intent.maxDistanceKm}} km 内</text><text class="tag">≤ ¥{{intent.budgetPerPerson}}/人</text></view><view class="section-head section"><text class="small muted">通过硬条件筛选，按距离和偏好排序</text><button class="link" bindtap="edit">改条件</button></view><view wx:if="{{recommendMeta}}" class="notice">已检查 {{recommendMeta.candidateCount}} 个候选，返回 {{recommendMeta.matchedCount}} 个结果；价格、距离、容量和时间均来自活动数据。</view></block>
+  <view wx:if="{{loading}}" class="notice">正在根据已确认条件匹配活动…</view>
+  <view wx:elif="{{errorMessage}}" class="empty"><text class="subtitle">推荐暂时加载失败</text><text class="block muted section">{{errorMessage}}</text><button class="primary" bindtap="retry">重新加载</button></view>
+  <block wx:else><activity-card wx:for="{{activities}}" wx:key="id" activity="{{item}}" bind:open="open"/><view wx:if="{{!activities.length}}" class="empty"><view class="empty-icon">⌁</view><text class="subtitle">暂时没有刚好合适的拼团</text><text class="block muted section">可以调整条件，或者发布这条需求，让管理员审核后安排活动。</text><button wx:if="{{intent}}" class="primary" bindtap="publish">发布这条拼团需求</button><button wx:if="{{intent}}" class="secondary" bindtap="edit">调整条件再找</button><button wx:else class="primary" bindtap="publish">发布一个需求</button><button class="secondary" bindtap="map">浏览全部活动</button></view><view wx:else class="notice">推荐分是排序指标，不代表匹配概率；推荐理由只引用活动事实字段。</view></block>
+</view>

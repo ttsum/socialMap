@@ -1,0 +1,21 @@
+<view class="page">
+  <text class="eyebrow">01 / FIND YOUR PEOPLE</text>
+  <text class="title">这个周末，<text class="block">想怎么过？</text></text>
+  <view class="spacer"></view>
+  <text class="muted">告诉我你的活动需求，也可以在找不到合适拼团时发布新需求。</text>
+  <view class="card section">
+    <text class="label">写下你的活动需求</text>
+    <textarea class="input" value="{{query}}" bindinput="input" maxlength="300" placeholder="例如：周六下午和三位朋友，找五公里内、人均100元以内的安静活动" show-confirm-bar="{{false}}"/>
+    <view class="row between small muted"><text>人数 · 时间 · 预算 · 距离</text><text>{{query.length}} / 300</text></view>
+  </view>
+  <view class="card section">
+    <text class="label">发布需求的位置（必选）</text>
+    <view class="row"><input class="input" value="{{locationQuery}}" bindinput="locationInput" placeholder="搜索地点，如岳麓山"/><button class="secondary" bindtap="searchLocation" loading="{{searchingLocation}}">搜索</button></view>
+    <view wx:for="{{locationResults}}" wx:key="address" class="notice" data-index="{{index}}" bindtap="selectLocation"><text>{{item.name}}</text><text class="small muted">{{item.address}}</text></view>
+    <view wx:if="{{location}}" class="notice"><text>已选：{{location.name}}</text><text class="small muted">{{location.address}}</text></view>
+  </view>
+  <view class="section"><text class="label">还没想法？试试这些</text><button wx:for="{{examples}}" wx:key="*this" class="example" data-index="{{index}}" bindtap="example">{{item}} <text class="accent">→</text></button></view>
+  <view wx:if="{{errorMessage}}" class="notice"><text>{{errorMessage}}</text><button class="link" bindtap="retry">重试</button></view>
+  <button class="primary" bindtap="submit" loading="{{submitting}}" disabled="{{!query.length || submitting}}">{{publishing ? '提交发布需求' : '让 AI 帮我找 →'}}</button>
+  <text class="footer-note">先查找已有拼团；找不到时，可提交带地图位置的待审核需求。</text>
+</view>

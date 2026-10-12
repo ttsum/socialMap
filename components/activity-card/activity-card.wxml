@@ -1,0 +1,5 @@
+<view wx:if="{{activity}}" class="activity" bindtap="open" hover-class="pressed" role="button" aria-label="{{activity.title}}">
+<view class="top"><view class="art {{activity.theme}}"><view class="sun"></view><view class="hill"></view><text class="symbol">{{activity.symbol}}</text></view>
+<view class="body"><view class="title">{{activity.title}}</view><view class="meta">{{activity.dateLabel}}</view><view class="meta">{{activity.locationName}} · {{activity.distanceKm}} km</view><view class="bottom"><text class="price">{{activity.priceLabel}}</text><text class="seats">{{activity.joined ? '已加入' : '余 ' + activity.remaining + ' 位'}}</text></view></view></view>
+<view class="tags"><text wx:for="{{activity.tags}}" wx:key="*this" class="tag">{{item}}</text></view>
+<view wx:if="{{activity.reason}}" class="reason"><text class="match">事实匹配 · {{activity.score}}</text><text>{{activity.reason}}</text></view></view>

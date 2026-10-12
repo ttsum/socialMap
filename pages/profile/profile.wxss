@@ -1,0 +1,1 @@
+.menu-row{width:100%;padding:18rpx 0;text-align:left}.menu-row + .menu-row{border-top:1rpx solid #EEF0E8}

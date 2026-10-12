@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/map/map",
+    "pages/publish/publish",
+    "pages/messages/messages",
+    "pages/profile/profile",
+    "pages/confirm/confirm",
+    "pages/matches/matches",
+    "pages/detail/detail",
+    "pages/chat/chat"
+  ],
+  "window": {
+    "navigationBarTitleText": "团团团",
+    "navigationBarBackgroundColor": "#FAF8F2",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FAF8F2"
+  },
+  "tabBar": {
+    "color": "#7C8492",
+    "selectedColor": "#EA735B",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图",
+        "iconPath": "assets/icons/map.png",
+        "selectedIconPath": "assets/icons/map-active.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
+        "iconPath": "assets/icons/publish.png",
+        "selectedIconPath": "assets/icons/publish-active.png"
+      },
+      {
+        "pagePath": "pages/messages/messages",
+        "text": "消息",
+        "iconPath": "assets/icons/messages.png",
+        "selectedIconPath": "assets/icons/messages-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/icons/profile.png",
+        "selectedIconPath": "assets/icons/profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "activity-card": "/components/activity-card/activity-card"
+  }
+}

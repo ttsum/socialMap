@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: tuantuantuan
+      POSTGRES_USER: tuantuantuan
+      POSTGRES_PASSWORD: tuantuantuan
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  api:
+    build: .
+    environment:
+      DJANGO_SECRET_KEY: local-compose-only
+      DJANGO_DEBUG: "1"
+      DJANGO_ALLOWED_HOSTS: "*"
+      DATABASE_URL: postgres://tuantuantuan:tuantuantuan@db:5432/tuantuantuan
+      ZHIPU_API_KEY: ${ZHIPU_API_KEY:-}
+      ZHIPU_BASE_URL: ${ZHIPU_BASE_URL:-https://open.bigmodel.cn/api/paas/v4}
+      LLM_MODEL: ${LLM_MODEL:-glm-5.3}
+      LLM_FALLBACK_MODEL: ${LLM_FALLBACK_MODEL:-glm-5.2}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: sh -c "python manage.py migrate && python manage.py seed_demo && python manage.py runserver 0.0.0.0:8000"
+volumes:
+  postgres_data:
